@@ -1,0 +1,4 @@
+folder("ProjectC")
+folder("ProjectC/c1")
+folder("ProjectC/c1/c1.1")
+folder("ProjectC/c2")
