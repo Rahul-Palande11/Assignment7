@@ -1,31 +1,15 @@
 pipelineJob('ProjectB/my-pipeline-jobB1') {
     definition {
-      cps {
-            script('''
-                pipeline {
-                    agent any
-                    stages {
-                        stage('Build') {
-                            steps {
-                                // Add build steps here
-                                echo 'Building...'
-                            }
-                        }
-                        stage('Test') {
-                            steps {
-                                // Add test steps here
-                                echo 'Testing...'
-                            }
-                        }
-                        stage('Deploy') {
-                            steps {
-                                // Add deployment steps here
-                                echo 'Deploying...'
-                            }
-                        }
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url('https://github.com/Rahul-Palande11/Jenkins-pipeline')
                     }
+                    branch('main')
                 }
-            ''')
+                scriptPath('pipeline.jenkinsfile')
+            }
         }
     }
 }
